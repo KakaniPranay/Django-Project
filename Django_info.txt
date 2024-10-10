@@ -1,0 +1,35 @@
+---> Firstly we need to activate venv 
+
+-->What is Venv?
+    A venv (short for virtual environment) is a tool in Python that allows you to create isolated environments for your Python projects.
+Each virtual environment has its own installation of Python and libraries, which makes it independent of other environments.
+This is helpful when working on multiple projects that may require different versions of Python or different versions of third-party libraries.
+
+->Key Benefits of Using venv:
+
+(i)Dependency Isolation: 
+    Each project can have its own dependencies, unaffected by the libraries installed for other projects. This prevents version conflicts between projects.
+
+(ii)Environment Reproducibility: 
+    By using a virtual environment, you can ensure that the exact same versions of the libraries are used in development and production, leading to fewer unexpected issues.
+
+(iii)Ease of Management: 
+    can easily install, upgrade, or remove packages within a specific environment without affecting your system-wide Python installation.
+
+
+-->To activate the Virtual Environment:
+    open the terminal the type the below command 
+-> On Windows
+    --> myenv\Scripts\activate  
+    (or)
+    --> .venv\Scripts\activate
+-> On macOS/Linux
+    --> source myenv/bin/activate
+
+--->Deactivate the virtual environment: 
+    To deactivate the environment and return to the system Python, simply run:
+        ->deactivate
+Common Use Case:
+    If you're working on a Django project and need specific versions of Django or other libraries, you can create a virtual environment for that project.
+This way, the environment won't interfere with global Python installations or other projects that might need different versions of Django.
+
