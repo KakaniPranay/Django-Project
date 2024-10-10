@@ -1,0 +1,70 @@
+--> After Creating the Virual environment
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 1:
+    Set up your Django Project
+    -> we need to install Django via pip
+        --> pip install django 
+
+    -> Create a New Django Project: Open your terminal and run
+        --> django-admin startproject 'project_name'
+        -->cd 'project_name'
+    -> Create a New Django App: Inside the project directory, create a new app for handling tasks
+        -->python manage.py startapp tasks
+    ->Add the App to Settings: Open task_manager/settings.py and add 'tasks' to the INSTALLED_APPS list
+        -->INSTALLED_APPS = [
+                ...
+                'tasks',
+            ]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 2:
+    Create a Model
+    -> In tasks/models.py, define a model for your tasks
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 3:
+    Create the Database
+    -> Make Migrations: Run the following commands to create the database tables
+        -->python manage.py makemigrations
+        -->python manage.py migrate
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 4:
+    Create the Admin Interface
+    ->Register the Model in Admin: Open tasks/admin.py and register the Task model
+    ->Create a Superuser: Create an admin user to access the admin interface
+        ->python manage.py createsuperuser
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 5:
+    ->Create Views: Open tasks/views.py and create views for listing, adding, and editing tasks
+    ->Create Forms: Create a form for the Task model in tasks/forms.py
+    ->Create URLs: Create a file named urls.py in the tasks app folder and set up URLs
+    ->Include App URLs: Modify the task_manager/urls.py file to include the tasks app URLs
+    ->Create Templates: Create a folder named templates inside the tasks folder. Within it, create another folder named tasks. Create two HTML files
+        (i)task_list.html
+        (ii)task_form.html
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Step 6:
+    ->Run the Development Server
+        run the below command locally
+        ->python manage.py runserver
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Overall we need to verify the template Directory Structure 
+    task_manager/
+    ├── manage.py
+    ├── task_manager/
+    │   ├── __init__.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    └── tasks/
+        ├── migrations/
+        ├── __init__.py
+        ├── admin.py
+        ├── apps.py
+        ├── forms.py
+        ├── models.py
+        ├── tests.py
+        ├── urls.py
+        ├── views.py
+        └── templates/
+            └── tasks/
+                ├── task_list.html
+                └── task_form.html
