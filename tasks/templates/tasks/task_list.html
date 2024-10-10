@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tasks/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Task List</h1>
+        <a href="{% url 'task_create' %}">Create New Task</a>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                {{ task.title }} - {{ task.completed }}
+                <a href="{% url 'task_edit' task.pk %}">Edit</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>

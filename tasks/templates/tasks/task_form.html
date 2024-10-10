@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tasks/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Task</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Task Title</label>
+                <input type="text" id="title" name="title" value="{{ task.title }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4">{{ task.description }}</textarea>
+                <!-- Add this line for description -->
+            </div>
+            <div class="form-group">
+                <label for="completed">Completed</label>
+                <select id="completed" name="completed">
+                    <option value="False" {% if not task.completed %}selected{% endif %}>No</option>
+                    <option value="True" {% if task.completed %}selected{% endif %}>Yes</option>
+                </select>
+            </div>
+            <button type="submit">Update Task</button>
+            <a href="{% url 'task_list' %}">Cancel</a>
+        </form>
+    </div>
+</body>
+
+</html>
